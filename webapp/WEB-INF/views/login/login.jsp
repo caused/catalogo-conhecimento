@@ -21,7 +21,7 @@
 
 		<div class="brand">
 			<img 
-				src="<c:url value='/resources/img/logo-resourcelogin.png'/>" class="pull-center center-block"
+				src="<c:url value='/resources/img/logo-verity.png'/>" class="pull-center center-block"
 				style="position:relative;top: 55px;height: 150px; width: 400px;">
 		</div>
 
@@ -36,7 +36,7 @@
 
                         <div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>
                             
-                        <form id="loginform" class="form-horizontal" role="form" method="POST" action="/catalogoconhecimento/usuario/logar">
+                        <form id="loginform" class="form-horizontal" role="form" method="POST" action="/catalogoconhecimento/logar">
                         
                         	<!-- Message Erro-->
 							<c:import url="/resources/jspImport/msgErro.jsp"/>

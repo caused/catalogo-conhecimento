@@ -27,7 +27,7 @@ import br.com.resource.catalogoconhecimento.business.TecnologiaBusiness;
 import br.com.resource.catalogoconhecimento.exceptions.BusinessException;
 
 @Controller
-@RequestMapping(value = "funcionario")
+@RequestMapping(value = "/funcionario")
 public class FuncionarioController {
 
 	@Autowired
@@ -45,7 +45,7 @@ public class FuncionarioController {
 	@Autowired
 	EquipeBusiness equipeBusiness;
 
-	@RequestMapping(value = "adicionar", method = RequestMethod.GET)
+	@RequestMapping(value = "/adicionar", method = RequestMethod.GET)
 	public String formularioAdicionar(Model model) throws BusinessException {
 		List<TecnologiaBean> listaTecnologia = tecnologiaBusiness.listar();
 		List<CargoBean> listaCargo = cargoBusiness.listar();

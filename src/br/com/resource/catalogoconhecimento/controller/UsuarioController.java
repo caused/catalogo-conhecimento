@@ -20,7 +20,7 @@ import br.com.resource.catalogoconhecimento.exceptions.BusinessException;
 import br.com.resource.catalogoconhecimento.utils.SessionUtil;
 
 @Controller
-@RequestMapping("usuario")
+@RequestMapping("/")
 public class UsuarioController {
 
 	@Autowired
@@ -36,18 +36,18 @@ public class UsuarioController {
 		return "login/login";
 	}
 
-	@RequestMapping(value = "formularioAdicionar", method = RequestMethod.GET)
+	@RequestMapping(value = "/usuario/adicionar", method = RequestMethod.GET)
 	public String formularioAdicionar() {
 		return "usuario/formularioAdicionar";
 	}
 	
-	@RequestMapping(value = "fazerLogoff")
+	@RequestMapping(value = "/usuario/logoff")
 	public String fazerLogoff(HttpServletRequest request){
 		request.getSession().removeAttribute("usuario");
-		return "redirect:/usuario";
+		return "redirect:/";
 	}
 
-	@RequestMapping(value = "adicionar", method = RequestMethod.POST)
+	@RequestMapping(value = "/usuario/adicionar", method = RequestMethod.POST)
 	public String adiciona(UsuarioBean usuarioBean, @RequestParam("perfil") String id) throws BusinessException {
 		int idPerfil = Integer.parseInt(id);
 		usuarioBean.setAtivo('S');
@@ -57,13 +57,13 @@ public class UsuarioController {
 		return "login/login";
 	}
 
-	@RequestMapping(value = "listar", method = { RequestMethod.GET,RequestMethod.POST })
+	@RequestMapping(value = "/usuario/listar", method = { RequestMethod.GET,RequestMethod.POST })
 	public String listarUsuario(Model model) throws BusinessException {
 		model.addAttribute("usuarios", usuarioBusiness.listar());
 		return "usuarios/listar";
 	}
 	
-	@RequestMapping(value = "formularioAlterar", method = RequestMethod.GET)
+	@RequestMapping(value = "/usuario/alterar", method = RequestMethod.GET)
 	public String alterar(Model model,UsuarioBean usuarioBean, @RequestParam("idUsuario") String id) throws BusinessException {
 		int idUsuario = Integer.parseInt(id);
 		
@@ -73,7 +73,7 @@ public class UsuarioController {
 		return "usuarios/alterar";
 	}
 
-	@RequestMapping(value = "alterar", method ={RequestMethod.GET, RequestMethod.POST})
+	@RequestMapping(value = "/usuario/alterar", method = RequestMethod.POST)
 	public String alterar(UsuarioBean usuarioBean,@RequestParam("perfil")String idP) throws BusinessException {
 		
 		int idPerfil = Integer.parseInt(idP);
@@ -83,7 +83,7 @@ public class UsuarioController {
 		return "redirect:listar";
 	}
 	
-	@RequestMapping(value = "excluir", method = RequestMethod.GET)
+	@RequestMapping(value = "/usuario/excluir", method = RequestMethod.GET)
 	public String excluir(@RequestParam("idUsuario") String id, @RequestParam("ativo") String ativo)
 			throws BusinessException {
 		int idUsuario = Integer.parseInt(id);
@@ -98,7 +98,7 @@ public class UsuarioController {
 		UsuarioBean usuario = usuarioBusiness.logar(usuarioBean.login, usuarioBean.senha);
 		HttpSession session = SessionUtil.getInstance(request);
 		session.setAttribute("usuario", usuario);
-		return new ModelAndView("redirect:/home/index");
+		return new ModelAndView("redirect:/home");
 	}
 	
 	

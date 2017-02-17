@@ -76,7 +76,7 @@ public class NegocioDAO extends GenericDAOImpl<NegocioBean, Integer> {
 
 	public List<NegocioBean> listarPorFuncionario(int id) throws BusinessException {
 		TypedQuery<NegocioBean> query = entityManager.createQuery(
-				"SELECT n FROM FuncionarioBean AS f" + "JOIN f.listaNegocio AS n WHERE f.id = :id AND f.ativo = 'S'",
+				"SELECT n FROM FuncionarioBean AS f JOIN f.listaNegocio AS n WHERE f.id = :id AND f.ativo = 'S'",
 				NegocioBean.class);
 		query.setParameter("id", id);
 		return query.getResultList();

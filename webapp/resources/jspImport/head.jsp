@@ -15,6 +15,7 @@
 	<link href="<c:url value='/resources/css/app-skin.css'/>" rel="stylesheet">
 	<link rel="stylesheet" href="<c:url value='/resources/css/jquery-ui.css'/>">
 	<link href="<c:url value='/resources/validator/formValidation.css'/>" rel="stylesheet">
+	<link href="<c:url value='/resources/css/main.css'/>" rel="stylesheet">
 		<!-- Le javascript
     ================================================== -->
     <!-- Placed at the end of the document so the page  s load faster -->

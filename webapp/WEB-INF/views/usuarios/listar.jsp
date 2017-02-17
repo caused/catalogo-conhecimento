@@ -59,11 +59,11 @@
 												<td>${usuario.perfilBean.tipo}</td>
 											
 												<td style="text-align: center;">
-													<a href="<c:url value='/usuario/formularioAlterar'> <c:param name='idUsuario' value='${usuario.id}'/><c:param name='ativo' value='S'/> </c:url>"><i class="fa fa-edit fa-lg"></i></a>
+													<a href="<c:url value='/usuario/alterar'> <c:param name='idUsuario' value='${usuario.id}'/><c:param name='ativo' value='S'/> </c:url>"><i class="fa fa-edit fa-lg"></i></a>
 												
 												</td>
 												<td style="text-align: center;">
-													<a href="<c:url value='excluir'> <c:param name='idUsuario' value='${usuario.id}'/><c:param name='ativo' value='N'/> </c:url>"><i class="fa fa-times fa-lg"></i></a>
+													<a href="<c:url value='/usuario/excluir'> <c:param name='idUsuario' value='${usuario.id}'/><c:param name='ativo' value='N'/> </c:url>"><i class="fa fa-times fa-lg"></i></a>
 													
 												</td>
 											</tr>

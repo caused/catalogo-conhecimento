@@ -62,7 +62,7 @@ public class EquipeDAO extends GenericDAOImpl<EquipeBean, Integer> {
 	// SELECIONAR DADOS NA TABELA POR PROJETO
 	public List<EquipeBean> obterPorProjeto(ProjetoBean projeto) throws BusinessException {
 		TypedQuery<EquipeBean> query = entityManager.createQuery(
-				"SELECT e FROM ProjetoBean AS p join p.listaEquipe AS e WHERE p.id = :id AND e.ativo = 'S' AND p.ativo = 'S'",
+				"SELECT e FROM ProjetoBean AS p JOIN p.listaEquipe AS e WHERE p.id = :id AND e.ativo = 'S' AND p.ativo = 'S'",
 				EquipeBean.class);
 		query.setParameter("id", projeto.getId());
 		return query.getResultList();
@@ -70,7 +70,7 @@ public class EquipeDAO extends GenericDAOImpl<EquipeBean, Integer> {
 
 	public List<EquipeBean> obterPorFuncionario(int idFuncionario) throws BusinessException {
 		TypedQuery<EquipeBean> query = entityManager.createQuery(
-				"SELECT e FROM FuncionarioBean AS f join f.equipes AS e WHERE f.id = :id", EquipeBean.class);
+				"SELECT e FROM FuncionarioBean AS f JOIN f.equipes AS e WHERE f.id = :id", EquipeBean.class);
 		query.setParameter("id", idFuncionario);
 		return query.getResultList();
 	}

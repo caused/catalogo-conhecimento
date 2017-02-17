@@ -15,7 +15,7 @@ import br.com.resource.catalogoconhecimento.utils.SessionUtil;
 @RequestMapping("home")
 public class HomeController {
 
-	@RequestMapping(value = "index", method = RequestMethod.GET)
+	@RequestMapping(value = "", method = RequestMethod.GET)
 	public ModelAndView index(HttpServletRequest request) {
 		HttpSession session = SessionUtil.getInstance(request);
 		UsuarioBean usuario = (UsuarioBean) session.getAttribute("usuario");
@@ -23,7 +23,7 @@ public class HomeController {
 		if (usuario != null)
 			return new ModelAndView("index");
 		else
-			return new ModelAndView("redirect:/usuario");
+			return new ModelAndView("redirect:/");
 	}
 
 }
